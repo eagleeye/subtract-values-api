@@ -1,0 +1,32 @@
+{
+  "name": "subtract-values-api",
+  "version": "1.0.0",
+  "description": "Subtract arrays in POST endpoint",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eagleeye/subtract-values-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eagleeye/subtract-values-api/issues"
+  },
+  "homepage": "https://github.com/eagleeye/subtract-values-api#readme",
+  "dependencies": {
+    "body-parser": "1.19.0",
+    "express": "4.17.1"
+  },
+  "devDependencies": {
+    "@debitoor/eslint-config-debitoor": "3.0.2",
+    "@debitoor/mocha-strict-dependencies": "1.1.0",
+    "chai": "4.2.0",
+    "eslint": "6.3.0",
+    "mocha": "6.2.0",
+    "mocha-eslint": "5.0.0"
+  }
+}
