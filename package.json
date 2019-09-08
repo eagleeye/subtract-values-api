@@ -4,6 +4,7 @@
   "description": "Subtract arrays in POST endpoint",
   "main": "server.js",
   "scripts": {
+    "start": "node bin/cli.js",
     "test": "mocha"
   },
   "repository": {
@@ -18,15 +19,19 @@
   },
   "homepage": "https://github.com/eagleeye/subtract-values-api#readme",
   "dependencies": {
+    "ajv": "6.10.2",
     "body-parser": "1.19.0",
-    "express": "4.17.1"
+    "cnf": "3.3.2",
+    "express": "4.17.1",
+    "chai": "4.2.0"
   },
   "devDependencies": {
     "@debitoor/eslint-config-debitoor": "3.0.2",
     "@debitoor/mocha-strict-dependencies": "1.1.0",
-    "chai": "4.2.0",
     "eslint": "6.3.0",
     "mocha": "6.2.0",
-    "mocha-eslint": "5.0.0"
+    "mocha-eslint": "5.0.0",
+    "request": "2.88.0",
+    "request-promise-native": "1.0.7"
   }
 }
