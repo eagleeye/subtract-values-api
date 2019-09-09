@@ -1,7 +1,8 @@
 const app = require('express')();
 const subtractService = require('./services/subtract');
-const bodyParser = require('body-parser')
-const { port } = require('cnf');
+const bodyParser = require('body-parser');
+const { port, env } = require('cnf');
+const Ajv = require('ajv');
 
 app.use(bodyParser.json());
 
@@ -12,8 +13,22 @@ app.post('/compute/:requestId', (req, res, next) => {
 });
 
 app.use((err, req, res, next) => {
-	// if ()
-	res.json(err);
+	if (err instanceof Ajv.ValidationError) {
+		console.warn(err);
+		return res.status(400).json({
+			message: err.message,
+			errors: err.errors
+		});
+	}
+	console.error(err);
+	const error = {};
+	if (['development', 'testing'].includes(env)) {
+		error.stack = err.stack;
+		error.message = err.message;
+	} else {
+		error.message = 'Internal Server Error';
+	}
+	res.status(500).json(error);
 });
 
 module.exports = {

@@ -7,11 +7,14 @@ module.exports = {
 
 async function subtract(data, requestId) {
 	expect('requestId').to.be.a('string');
-	validateSubtract(data);
+	await validateSubtract(data);
 	return {
 		request_id: requestId,
 		timestamp: data.timestamp,
-		result: subtractArrays(data.data[0].values, data.data[1].values)
+		result: {
+			title: 'Result',
+			values: subtractArrays(data.data[0].values, data.data[1].values)
+		}
 	};
 }
 

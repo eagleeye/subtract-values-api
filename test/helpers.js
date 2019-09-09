@@ -1,4 +1,5 @@
-const server = require('/server');
+process.env.APP_ENV = 'test';
+const server = require('../server');
 
 module.exports = {
 	ensureApp

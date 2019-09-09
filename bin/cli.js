@@ -1,4 +1,4 @@
-const server = require('../server')
+const server = require('../server');
 server.startApp().catch(e => {
 	throw e;
 });

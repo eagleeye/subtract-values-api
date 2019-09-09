@@ -6,14 +6,13 @@ module.exports = {
 };
 
 const validateSubtractSchema = {
+	'$async': true,
 	type: 'object',
-	required: true,
+	required: ['timestamp', 'data'],
 	additionalProperties: false,
 	properties: {
 		timestamp: {
-			type: 'integer',
-			minValue: 0,
-			maxValue: 2147483648 //max timestamp value
+			type: 'integer'
 		},
 		data: {
 			type: 'array',
@@ -22,12 +21,11 @@ const validateSubtractSchema = {
 			items: [
 				{
 					type: 'object',
-					required: 'true',
 					additionalProperties: false,
+					required: ['title', 'values'],
 					properties: {
 						title: {
 							type: 'string',
-							required: true
 						},
 						values: {
 							type: 'array',
@@ -47,11 +45,8 @@ const validateSubtractSchema = {
 };
 
 
+const ajvValidateSubtract = ajv.compile(validateSubtractSchema);
 
 function validateSubtract(data) {
-	const ajvValidateSubtract = ajv.compile(validateSubtractSchema);
-	const valid = ajvValidateSubtract(data);
-	if (!valid) {
-		throw ajvValidateSubtract.errors;
-	}
+	return ajvValidateSubtract(data);
 }
