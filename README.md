@@ -1,14 +1,14 @@
 # subtract-values-api
 Subtract arrays in POST endpoint
 
-#Installation
+# Installation
 
 `npm i`
 
-#Run tests
+# Run tests
 
 `npm test`
 
-#Start app
+# Start app
 
 `npm start`
